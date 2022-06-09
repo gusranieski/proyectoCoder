@@ -6,7 +6,6 @@
 
 body {
     background-image: radial-gradient(rgb(193, 170, 139), white);
-    margin: 20px 20px;
 }
 
 
@@ -130,11 +129,15 @@ main p {
 
 }
 
+iframe {
+    width: 100%;
+}
+
 .sectionCategorias {
     background-color: burlywood;
     border-radius: 10px;
     width: 90%;
-    height: 180px;
+    height: 200px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -212,8 +215,7 @@ h3 {
 }
 
 .imgFinal {
-    width: 95%;
-    margin: 20px;
+    width: 100%;
     padding: 10px;
 }
 
@@ -250,7 +252,7 @@ footer {
 
 .contenedorContacto iframe {
     padding: 20px;
-    margin: 20px;
+
 
 }
 
@@ -465,34 +467,39 @@ footer {
             "footer"
     }
 
-    .grilla p {
-        display: none;
-    }
 
     body {
         margin: 0px;
+        width: 100%;
+    }
+
+    .sectionDestacados {
+        display: none;
+    }
+
+    .sectionCategorias {
+        display: none;
+    }
+
+    .contenedorCategorias {
+        display: none;
     }
 
     main {
         justify-content: center;
         align-items: center;
+        padding: 10px;
     }
 
     /*seccion-productos*/
     .grilla__productos {
-        grid-template-areas:
-            "nav"
-            "header"
-            "main"
-            "footer"
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
     }
 
     /*seccion-informacion*/
-    .grilla__informacion {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
+    .grilla__informacion {}
 
     /*seccion-envios*/
     .grilla__envios {
@@ -520,7 +527,7 @@ footer {
 }
 
 /*tablet*/
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 320px) {
 
     /*seccion-inicio*/
     .grilla {
@@ -538,7 +545,9 @@ footer {
     .contenedorContacto {
         display: flex;
         flex-direction: column;
+        padding: 0%;
     }
+
 
 }
 
