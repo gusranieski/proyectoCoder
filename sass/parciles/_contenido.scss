@@ -19,14 +19,16 @@
     align-content: space-around;
     justify-content: space-evenly;
     margin: auto;
-    & ul li {
-        padding: 10px;
-        margin: 5px;
-        display: inline-block;
-        border: 1px solid darkslategrey;
-        border-radius: 10px;
-    }
 }
+
+.contenedorCategorias ul li {
+    padding: 10px;
+    margin: 5px;
+    display: inline-block;
+    border: 1px solid darkslategrey;
+    border-radius: 10px;
+}
+
 a {
     text-decoration: none;
     color: rgb(161, 84, 28);
@@ -47,15 +49,7 @@ a {
     border-radius: 10px;
     background-color: $colorFondo;
     height: fit-content;
-    h3 {
-        font-size: 1.25rem;
-        text-align: center;
-        color: $colorTitulos;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        padding: 5px;
-        margin: 10px;
-        display: inline-block;
-    }
+    
 }
 
 .imgDestacados {
