@@ -1,0 +1,19 @@
+h1 {
+    height: 150px;
+    display: flex;
+    margin: 20px;
+    align-items: center;
+    justify-content: center;
+    color: lightgrey;
+    font-family: 'Syncopate', sans-serif;
+    background-image: url(../imagenes/vintagefondo1280.jpg);
+}
+
+h2 {
+    font-size: 1.25rem;
+    color: $colorTitulos;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 5px;
+    margin: 10px;
+    display: inline-block;
+}

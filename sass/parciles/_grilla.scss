@@ -1,0 +1,31 @@
+.grilla {
+    height: 100vh;
+    display: grid;
+    grid-template-areas:
+        "nav nav"
+        "header header"
+        "main aside"
+        "footer footer";
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto 1fr;
+}
+
+nav {
+    grid-area: nav;
+}
+
+header {
+    grid-area: header;
+}
+
+main {
+    grid-area: main;
+}
+
+aside {
+    grid-area: aside;
+}
+
+footer {
+    grid-area: footer;
+}
