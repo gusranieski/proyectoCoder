@@ -1,10 +1,11 @@
+/*--------------se aplica map-get--------------*/
 body {
-    background-image: $gradiente;}
+    background-image: map-get($colores,"bg-gradiente");}
 
 main p {
     font-size: 1.25rem;
     font-family: sans-serif;
     text-align: justify;
-    color: darkslategrey;
+    color: map-get($colores,"parrafos");
     margin: 30px;
 }

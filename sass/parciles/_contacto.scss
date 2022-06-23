@@ -1,0 +1,42 @@
+/*------------------------se aplica extend en textarea---------------------------*/
+.contenedorContacto {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    margin: 20px;
+    & iframe {
+        padding: 20px;
+        width: 100%;
+    }
+    
+    & form {
+        background-color: beige;
+        border-radius: 10px;
+        font-size: 1.25rem;
+        font-family: sans-serif;
+        color: $colorTexto;
+        padding: 20px;
+        margin: 20px;
+    }
+    
+    & input {
+        display: block;
+        width: 90%;
+        margin: 10px;
+        padding: 10px;
+    }
+    
+    & textarea {
+        @extend input;
+        height: 130px;
+    }
+    .botonContacto {
+        padding: 10px 20px;
+        color: rgb(161, 84, 28);
+        background-color: powderblue;
+        border-radius: 5px;
+        border: none;
+    }
+}

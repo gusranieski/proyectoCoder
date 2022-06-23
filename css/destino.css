@@ -1,9 +1,12 @@
 @charset "UTF-8";
+/*-------mapa generado----------*/
+/*se aplica @include en el archivo _titulos.scss*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box; }
 
+/*--------------se aplica map-get--------------*/
 body {
   background-image: radial-gradient(#c1aa8b, white); }
 
@@ -14,13 +17,11 @@ main p {
   color: darkslategrey;
   margin: 30px; }
 
+/*GRID-INDEX*/
 .grilla {
   height: 100vh;
   display: grid;
-  grid-template-areas: "nav nav"
- "header header"
- "main aside"
- "footer footer";
+  grid-template-areas: "nav nav" "header header" "main aside" "footer footer";
   grid-template-rows: auto 1fr auto;
   grid-template-columns: auto 1fr; }
 
@@ -39,9 +40,89 @@ aside {
 footer {
   grid-area: footer; }
 
-.logi {
+/*GRID-PRODUCTOS*/
+.grilla__productos {
+  height: 100vh;
+  display: grid;
+  grid-template-areas: "nav" "header" "main" "footer";
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: 1fr; }
+
+nav {
+  grid-area: nav; }
+
+header {
+  grid-area: header; }
+
+main {
+  grid-area: main; }
+
+footer {
+  grid-area: footer; }
+
+/*GRID-INFORMACIÓN*/
+.grilla__informacion {
+  height: 100vh;
+  display: grid;
+  grid-template-areas: "nav" "header" "main" "footer";
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: 1fr; }
+
+nav {
+  grid-area: nav; }
+
+header {
+  grid-area: header; }
+
+main {
+  grid-area: main; }
+
+footer {
+  grid-area: footer; }
+
+/*GRID-ENVIOS*/
+.grilla__envios {
+  height: 100vh;
+  display: grid;
+  grid-template-areas: "nav" "header" "main" "footer";
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: 1fr; }
+
+nav {
+  grid-area: nav; }
+
+header {
+  grid-area: header; }
+
+main {
+  grid-area: main; }
+
+footer {
+  grid-area: footer; }
+
+/*GRID-CONTACTO*/
+.grilla__contacto {
+  height: 100vh;
+  display: grid;
+  grid-template-areas: "nav" "header" "main" "footer";
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: 1fr; }
+
+nav {
+  grid-area: nav; }
+
+header {
+  grid-area: header; }
+
+main {
+  grid-area: main; }
+
+footer {
+  grid-area: footer; }
+
+.logo {
   width: 70px; }
-  .logi:hover {
+  .logo:hover {
     transform: scale(1.3); }
 
 nav {
@@ -61,6 +142,7 @@ h1 {
   font-family: 'Syncopate', sans-serif;
   background-image: url(../imagenes/vintagefondo1280.jpg); }
 
+/*-----------------------se aplica mixin en h2 y h3-------------------------*/
 h2 {
   font-size: 1.25rem;
   color: #a1541c;
@@ -71,7 +153,6 @@ h2 {
 
 h3 {
   font-size: 1.25rem;
-  text-align: center;
   color: #a1541c;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   padding: 5px;
@@ -158,7 +239,7 @@ footer {
   .redesSociales a a svg:hover {
     transform: scale(1.1); }
 
-/*SECCION CONTACTO*/
+/*------------------------se aplica extend en textarea---------------------------*/
 .contenedorContacto {
   display: flex;
   flex-wrap: wrap;
@@ -177,16 +258,12 @@ footer {
     color: darkslategrey;
     padding: 20px;
     margin: 20px; }
-  .contenedorContacto input {
+  .contenedorContacto input, .contenedorContacto textarea {
     display: block;
     width: 90%;
     margin: 10px;
     padding: 10px; }
   .contenedorContacto textarea {
-    display: block;
-    width: 90%;
-    margin: 10px;
-    padding: 10px;
     height: 130px; }
   .contenedorContacto .botonContacto {
     padding: 10px 20px;
@@ -195,109 +272,13 @@ footer {
     border-radius: 5px;
     border: none; }
 
-/*GRID-PRODUCTOS*/
-.grilla__productos {
-  height: 100vh;
-  display: grid;
-  grid-template-areas: "nav"
- "header"
- "main"
- "footer";
-  grid-template-rows: repeat(4, 1fr);
-  grid-template-columns: 1fr; }
-
-nav {
-  grid-area: nav; }
-
-header {
-  grid-area: header; }
-
-main {
-  grid-area: main; }
-
-footer {
-  grid-area: footer; }
-
-/*GRID-INFORMACIÓN*/
-.grilla__informacion {
-  height: 100vh;
-  display: grid;
-  grid-template-areas: "nav"
- "header"
- "main"
- "footer";
-  grid-template-rows: repeat(4, 1fr);
-  grid-template-columns: 1fr; }
-
-nav {
-  grid-area: nav; }
-
-header {
-  grid-area: header; }
-
-main {
-  grid-area: main; }
-
-footer {
-  grid-area: footer; }
-
-/*GRID-ENVIOS*/
-.grilla__envios {
-  height: 100vh;
-  display: grid;
-  grid-template-areas: "nav"
- "header"
- "main"
- "footer";
-  grid-template-rows: repeat(4, 1fr);
-  grid-template-columns: 1fr; }
-
-nav {
-  grid-area: nav; }
-
-header {
-  grid-area: header; }
-
-main {
-  grid-area: main; }
-
-footer {
-  grid-area: footer; }
-
-/*GRID-CONTACTO*/
-.grilla__contacto {
-  height: 100vh;
-  display: grid;
-  grid-template-areas: "nav"
- "header"
- "main"
- "footer";
-  grid-template-rows: repeat(4, 1fr);
-  grid-template-columns: 1fr; }
-
-nav {
-  grid-area: nav; }
-
-header {
-  grid-area: header; }
-
-main {
-  grid-area: main; }
-
-footer {
-  grid-area: footer; }
-
 /*MEDIA QUERIES*/
 /*mobile*/
 @media screen and (max-width: 480px) {
   /*seccion-inicio*/
   .grilla {
     grid-template-columns: 1fr;
-    grid-template-areas: "nav"
- "header"
- "aside"
- "main"
- "footer"; }
+    grid-template-areas: "nav" "header" "aside" "main" "footer"; }
   body {
     margin: 0px;
     width: 100%; }
@@ -331,16 +312,10 @@ footer {
   /*seccion-informacion*/
   /*seccion-envios*/
   .grilla__envios {
-    grid-template-areas: "nav"
- "header"
- "main"
- "footer"; }
+    grid-template-areas: "nav" "header" "main" "footer"; }
   /*seccion-contacto*/
   .grilla__contacto {
-    grid-template-areas: "nav"
- "header"
- "main"
- "footer"; }
+    grid-template-areas: "nav" "header" "main" "footer"; }
   .contenedorContacto {
     display: flex;
     flex-direction: column;
@@ -351,11 +326,7 @@ footer {
 @media screen and (min-width: 481px) {
   /*seccion-inicio*/
   .grilla {
-    grid-template-areas: "nav"
- "header"
- "main"
- "aside"
- "footer";
+    grid-template-areas: "nav" "header" "main" "aside" "footer";
     grid-template-rows: repeat(5, 1fr);
     grid-template-columns: 1fr; }
   /*seccion-contacto*/
@@ -370,10 +341,7 @@ footer {
 @media screen and (min-width: 1024px) {
   /*seccion-inicio*/
   .grilla {
-    grid-template-areas: "nav nav"
- "header header"
- "main aside"
- "footer footer";
+    grid-template-areas: "nav nav" "header header" "main aside" "footer footer";
     grid-template-rows: auto 1fr auto;
     grid-template-columns: auto 1fr; }
   .contenedorContacto {

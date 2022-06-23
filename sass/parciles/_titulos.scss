@@ -8,22 +8,11 @@ h1 {
     font-family: 'Syncopate', sans-serif;
     background-image: url(../imagenes/vintagefondo1280.jpg);
 }
-
+/*-----------------------se aplica mixin en h2 y h3-------------------------*/
 h2 {
-    font-size: 1.25rem;
-    color: $colorTitulos;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding: 5px;
-    margin: 10px;
-    display: inline-block;
+  @include subtitulo;
 }
 
 h3 {
-    font-size: 1.25rem;
-    text-align: center;
-    color: $colorTitulos;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding: 5px;
-    margin: 10px;
-    display: inline-block;
+   @include subtitulo;
 }
