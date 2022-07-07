@@ -1,10 +1,10 @@
 @mixin subtitulo {
     font-size: 1.25rem;
     color: $colorTitulos;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Righteous', cursive;
     padding: 5px;
     margin: 10px;
-    display: inline-block;  
+    text-align: center;  
 }
 
 /*se aplica @include en el archivo _titulos.scss*/
