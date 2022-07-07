@@ -20,10 +20,6 @@
     }
 
     .containerVideo {
-        margin: 5px;
-    }
-
-    .sectionDestacados {
         display: none;
     }
 
@@ -39,6 +35,10 @@
         justify-content: center;
         align-items: center;
         padding: 10px;
+    }
+
+    .fotoMadera p{
+        display: none;
     }
 
     /*seccion-productos*/
