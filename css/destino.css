@@ -18,6 +18,10 @@ main p {
   color: darkslategrey;
   margin: 30px; }
 
+.row p {
+  text-align: center;
+  margin: 10px; }
+
 /*GRID-INDEX*/
 .grilla {
   height: 100vh;

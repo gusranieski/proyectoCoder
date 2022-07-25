@@ -9,3 +9,8 @@ main p {
     color: map-get($colores,"parrafos");
     margin: 30px;
 }
+
+.row p {
+    text-align: center;
+    margin: 10px;
+}
