@@ -31,34 +31,7 @@ footer {
     grid-area: footer;
 }
 
-/*GRID-PRODUCTOS*/
-.grilla__productos {
-    height: 100vh;
-    display: grid;
-    grid-template-areas:
-        "nav"
-        "header"
-        "main"
-        "footer";
-    grid-template-rows: repeat(4, 1fr);
-    grid-template-columns: 1fr;
-}
 
-nav {
-    grid-area: nav;
-}
-
-header {
-    grid-area: header;
-}
-
-main {
-    grid-area: main;
-}
-
-footer {
-    grid-area: footer;
-}
 
 /*GRID-INFORMACIÓN*/
 .grilla__informacion {

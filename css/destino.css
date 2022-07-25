@@ -41,26 +41,6 @@ aside {
 footer {
   grid-area: footer; }
 
-/*GRID-PRODUCTOS*/
-.grilla__productos {
-  height: 100vh;
-  display: grid;
-  grid-template-areas: "nav" "header" "main" "footer";
-  grid-template-rows: repeat(4, 1fr);
-  grid-template-columns: 1fr; }
-
-nav {
-  grid-area: nav; }
-
-header {
-  grid-area: header; }
-
-main {
-  grid-area: main; }
-
-footer {
-  grid-area: footer; }
-
 /*GRID-INFORMACIÓN*/
 .grilla__informacion {
   height: 100vh;
@@ -222,14 +202,6 @@ a {
     margin: 20px;
     height: 40vh; }
 
-.imgTodoslosproductos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; }
-  .imgTodoslosproductos img {
-    margin: 20px;
-    height: 30vh; }
-
 footer {
   background-color: burlywood;
   height: 90px;
@@ -296,24 +268,6 @@ footer {
     padding: 10px; }
   .fotoMadera p {
     display: none; }
-  /*seccion-productos*/
-  .grilla__productos {
-    display: flex;
-    flex-direction: column; }
-  .imgDestacados img {
-    margin: 5px;
-    height: 50vh;
-    width: 100%; }
-  .imgTodoslosproductos {
-    display: flex;
-    flex-direction: column; }
-  .imgTodoslosproductos img {
-    margin: 5px;
-    height: 50vh;
-    width: 100%; }
-  main p {
-    margin: 10px;
-    font-size: 1rem; }
   /*seccion-informacion*/
   /*seccion-envios*/
   .grilla__envios {
@@ -350,8 +304,6 @@ footer {
     grid-template-rows: auto 1fr auto;
     grid-template-columns: auto 1fr; }
   .imgDestacados img:hover {
-    transform: scale(1.3); }
-  .imgTodoslosproductos img:hover {
     transform: scale(1.3); }
   .contenedorContacto {
     display: flex;

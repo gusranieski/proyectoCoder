@@ -37,32 +37,6 @@
         display: none;
     }
 
-    /*seccion-productos*/
-    .grilla__productos {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .imgDestacados img {
-        margin: 5px;
-        height: 50vh;
-        width: 100%;
-    }
-
-    .imgTodoslosproductos {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .imgTodoslosproductos img {
-        margin: 5px;
-        height: 50vh;
-        width: 100%;
-    }
-    main p {
-        margin: 10px;
-        font-size: 1rem;
-    }
    
     /*seccion-informacion*/
 
@@ -134,10 +108,6 @@
     }
 
     .imgDestacados img:hover {
-        transform: scale(1.3);
-    }
-
-    .imgTodoslosproductos img:hover {
         transform: scale(1.3);
     }
 
