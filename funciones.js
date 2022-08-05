@@ -1,109 +1,81 @@
-//DESAFIO COMPLEMENTARIO-ARRAYS-
+//-CONSTRUCTOR-
 class Producto {
-    constructor(nombre, precio, codigo) {
-    this.nombre = nombre.toUpperCase();
+    constructor(nombre, precio, codigo, vendido) {
+    this.nombre = nombre;
     this.precio = parseFloat(precio);
     this.codigo = codigo;
-    this.vendido = false;
+    this.vendido = vendido;
     }
     sumaIva() {
         this.precio = this.precio * 1.21;
     }
-   }
-   
-   const productos = [];
-   productos.push(new Producto("banco niza", 11000,"m01"));
-   productos.push(new Producto("mesa londres", 15500,"m02"));
-   productos.push(new Producto("mueble york", 7850,"m03"));
-   productos.push(new Producto("mueble mini york", 5050,"m04"));
-   productos.push(new Producto("mesa zagreb", 15600,"m05"));
-   productos.push(new Producto("mesa panama", 6800,"m06"));
-   productos.push(new Producto("perchero gales", 6300,"m07"));
-   productos.push(new Producto("perchero lyon", 4050,"m08"));
-   
-   for(const prod of productos){
-     prod.sumaIva();
-    }
-    console.log(productos);
-
-
-//PRIMER DESAFIO-FUNCIONES-
-    function saludar() {
-    alert("¡Bienvenidos a MUEBLITO!");
 }
 
+const productos = [];
+productos.push(new Producto("banco niza", 11000,"m01", true));
+productos.push(new Producto("mesa londres", 15500,"m02", true));
+productos.push(new Producto("mueble york", 7850,"m03", false));
+productos.push(new Producto("mueble mini york", 5050,"m04",true));
+productos.push(new Producto("mesa zagreb", 15600,"m05", false));
+productos.push(new Producto("mesa panama", 6800,"m06", true));
+productos.push(new Producto("perchero gales", 6300,"m07", true));
+productos.push(new Producto("perchero lyon", 4050,"m08", true));
+//-(se muestran por consola agregándole el IVA)-
+for(const prod of productos){
+    prod.sumaIva();
+    }
+    console.table(productos);
+    
+    
+//-SALUDO-
+function saludar() {
+    let hora=new Date();
+    alert("¡Bienvenidos a MUEBLITO!"+"\n"+hora.toLocaleString());
+}
 saludar ();
 
-
-function calcular()
-{
-    let producto = prompt ("Ingresa un producto (presiona -t para ver el total)\nbanco niza\nmesa londres\nmueble york\nmueble mini york\nmesa zagreb\nmesa panama\nperchero gales\nperchero lyon");
-    let precio=0;
-    
-while(producto!="t"){
-    switch(producto){
-        case "banco niza":
-            console.log("Banco NIZA $11.000");
-            precio=precio+11000;
-            break;
-        case "mesa londres":
-            console.log("Mesa LONDRES $15.500");
-            precio=precio+15500;
-            break;
-        case "mueble york":
-            console.log("Mueble YORK $7.850");
-            precio=precio+7850;
-            break;
-        case "mueble mini york":
-            console.log("Mueble MINI YORK $5.050");
-            precio=precio+5050;
-            break;
-        case "mesa zagreb":
-            console.log("Mesa ZAGREB $15.600");
-            precio=precio+15600;
-            break;
-        case "mesa panama":
-            console.log("Mesa PANAMÁ $6.800");
-            precio=precio+6800;
-            break;
-        case "perchero gales":
-            console.log("Perchero GALES $6.300");
-            precio=precio+6300;
-            break;
-        case "perchero lyon":
-            console.log("Perchero Lyon $4.050");
-            precio=precio+4050;
-            break;
-        default:
-            console.log("producto no se encuentra");
-            break;
+//-CONSULTA PRODUCTOS-
+let seleccionarProd = prompt ("Ingresa un producto:\nbanco niza\nmesa londres\nmueble york\nmueble mini york\nmesa zagreb\nmesa panama\nperchero gales\nperchero lyon");
+let carrito=[];
+while(seleccionarProd != "finalizar"){
+    let prodElegido = productos.find((prod) => prod.nombre == seleccionarProd);
+    console.log(prodElegido);
+    if(prodElegido != undefined){
+        carrito.push(prodElegido);
+        alert("Producto agregado");
+        console.table(carrito);
+    }else{
+        alert("Producto no encontrado")
     }
-    producto=prompt("Ingresa otro producto (presionar -t para ver el total)\nbanco niza\nmesa londres\nmueble york\nmueble mini york\nmesa zagreb\nmesa panama\nperchero gales\nperchero lyon");
+    seleccionarProd=prompt("Ingresa otro producto ó (finalizar)")
 }
-console.log("Total a pagar $"+precio);
-}
+//REDUCE-(se suma el total del carrito)
+const total = carrito.reduce((acc,prod) => acc+prod.precio,0);
+alert("Total de la suma $"+total)
+console.log("Total de la suma $"+total)
 
-calcular();
-
-function pagar() {
-    let metodoDePago= prompt("Ingrese forma de pago \ntarjeta \nmercadopago")
-    if (metodoDePago=="tarjeta"){
-        alert("Ingrese número de tarjeta")
-    }
-    else if (metodoDePago=="mercadopago"){
-        alert("Ingrese usuario")
-    }
-    else {
-        alert("no paga")
-    }
-}
-
-pagar()
-
+//-DESPEDIDA-
 function despedir() {
     alert("Gracias por tu compra!!")
 }
+despedir()    
 
-despedir()
+//MAP-(se pasan a mayúsculas los nombres)
+const actualizado = productos.map((prod) => {
+    return {
+    nombre: prod.nombre.toUpperCase(),
+    precio: prod.precio 
+    }
+})
+console.table(actualizado);
+
+//FIND-(se busca el código "m04")
+const busqueda = productos.find((prod) => prod.codigo === "m04");
+console.log(busqueda);
+
+//FILTER-(se filtran los productos menores a $7000)
+const filtroPrecio = productos.filter((prod) => prod.precio < 7000);
+console.table(filtroPrecio);
+
 
 
