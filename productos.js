@@ -1,25 +1,25 @@
 //-CONSTRUCTOR-
 class Producto {
-    constructor(nombre, precio, codigo, stock, imagen) {
+    constructor(nombre, precio, codigo, cantidad, imagen) {
     this.nombre = nombre;
     this.precio = parseFloat(precio);
     this.codigo = codigo;
-    this.stock = parseInt(stock);
+    this.cantidad = parseInt(cantidad);
     this.imagen = imagen;
-    }
-    sumaIva() {
-        this.precio = this.precio * 1.21;
     }
 }
 const productos = [
-    new Producto("Banco Niza",11000,"m01",10,"banco00"),
-    new Producto("Mesa Londres",15500,"m02",10,"escritorio00"),
-    new Producto("Mueble York",7850,"m03",10,"estanteria00"),
-    new Producto("Mueble Mini york",5050,"m04",10,"estanteria01"),
-    new Producto("Mesa Zagreb",15600,"m05",10,"mesaratona00"),
-    new Producto("Mesa Panama",6800,"m06",10,"mesaratona01"),
-    new Producto("Perchero Gales",6300,"m07",10,"perchero00"),
-    new Producto("Perchero Lyon",4050,"m08",10,"perchero001"),
+    new Producto("Banco Niza",11000,"m01",1,"../imagenes/todos los productos/banco00.jpg"),
+    new Producto("Mesa Londres",15500,"m02",1,"../imagenes/todos los productos/escritorio00.jpg"),
+    new Producto("Mueble York",7850,"m03",1,"../imagenes/todos los productos/estanteria00.jpg"),
+    new Producto("Mueble Mini york",5050,"m04",1,"../imagenes/todos los productos/estanteria01.jpg"),
+    new Producto("Mesa Zagreb",15600,"m05",1,"../imagenes/todos los productos/mesaratona00.jpg"),
+    new Producto("Mesa Panama",6800,"m06",1,"../imagenes/todos los productos/mesaratona01.jpg"),
+    new Producto("Perchero Gales",6300,"m07",1,"../imagenes/todos los productos/perchero00.jpg"),
+    new Producto("Perchero Lyon",4050,"m08",1,"../imagenes/todos los productos/perchero001.jpg"),
 ];
-
-productos.push(new Producto("Barra Desayunadora",45000,"m09",10,"barra desayunadora"));
+//últimos productos agregados-
+productos.push(new Producto("Banco Napoli",6000,"m09",1,"../imagenes/todos los productos/bancoNapoli.jpg"));
+productos.push(new Producto("Estante Seul",3000,"m010",1,"../imagenes/todos los productos/estanteSeul.jpg"));
+productos.push(new Producto("Banqueta Tokio",4000,"m011",1,"../imagenes/todos los productos/banquetaTokio.jpg"));
+productos.push(new Producto("Mesa Colombia",5500,"m012",1,"../imagenes/todos los productos/mesaColombia.jpg"));
