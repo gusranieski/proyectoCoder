@@ -8,23 +8,13 @@ const contadorCarrito = document.getElementById("conteo-carrito");
 const botonFinalizarCompra = document.getElementById("finalizar-compra");
 
 //STORAGE-cuando se actualiza la página, se carga el carrito abandonado
-let carritoLocalStorage = JSON.parse(localStorage.getItem('carrito'))
-if (carritoLocalStorage) {
- carrito = carritoLocalStorage
- actualizarCarrito()
- console.table(carrito)
-} else {
-    carrito = []
-}
-
-//-(se muestran los productos por consola)-
-console.table(productos);
+//OPERADOR LOGICO OR--------------
+carrito = JSON.parse(localStorage.getItem('carrito')) || [] 
 
 //FUNCIONES-
 crearTarjeta();
 agregarAlCarrito();
 actualizarCarrito();
-
 
 //DOM-(se crean las cartas en el html)
 function crearTarjeta(){
@@ -48,7 +38,7 @@ function agregarAlCarrito(){
 productos.forEach(prod =>{
     let botonComprar = document.getElementById(`btn${prod.codigo}`);    
     botonComprar.onclick = () => {
-            carrito.push(prod);
+            carrito.push(prod);           
             console.table(carrito);
             actualizarCarrito()
         }
@@ -69,11 +59,6 @@ botonVaciarCarrito.addEventListener("click", () => {
     actualizarCarrito();
 })
 
-//FINALIZAR COMPRA-
-botonFinalizarCompra.addEventListener("click", () =>{
-    Swal.fire('Compra realizada con éxito!!!')
-})
-
 //ACTUALIZAR CARRITO Y SUMAR EL TOTAL-
 function actualizarCarrito(){   
     contenedorCarrito.innerHTML = "";
@@ -92,17 +77,29 @@ function actualizarCarrito(){
                     eliminarProducto.addEventListener("click", function(){
                     eliminarDelCarrito(prod.codigo)
         }); 
-    })
+    });         
                 const total = carrito.reduce((acc,prod) => acc+prod.precio,0);
-                contenedorTotalModal.innerHTML=`
-                        <th scope="row" colspan="5">Total de la compra: $${total}</th>
-                    `;
+                //OPERADOR TERNARIO-------------------------
+                carrito.length === 0 ? contenedorTotalModal.innerHTML = `<th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>`: contenedorTotalModal.innerHTML = `<th scope="row" colspan="5">Total de la compra: $${total}</th>`;
+                
                 console.log("Total de la suma $"+total);
                 contadorCarrito.innerText = carrito.length;
                 //se guarda el carrito en el local storage
                 localStorage.setItem("carrito",JSON.stringify(carrito));
 }
 
+//FINALIZAR COMPRA-al finalizar la compra se vacía el carrito del local storage-
+botonFinalizarCompra.addEventListener("click", () =>{
+    Swal.fire('Compra realizada con éxito!!!');
+    localStorage.removeItem("carrito",JSON.stringify(carrito));
+    carrito=[]
+    actualizarCarrito()
+})
 
-
+//SPREAD OPERATOR-agrego una nueva clave y valor a todos los objetos
+const origen = "Argentina";
+const construido = productos.map(productos =>{
+    return {...productos, origen};
+});
+console.table(construido)
 
