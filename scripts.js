@@ -38,6 +38,14 @@ function agregarAlCarrito(){
 productos.forEach(prod =>{
     let botonComprar = document.getElementById(`btn${prod.codigo}`);    
     botonComprar.onclick = () => {
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Agregaste a tu carrito:'+"\n"+prod.nombre,
+            showConfirmButton: false,
+            timer: 2500,
+            toast : true
+          })
             carrito.push(prod);           
             console.table(carrito);
             actualizarCarrito()
@@ -55,6 +63,19 @@ const eliminarDelCarrito = (prodId) => {
 
 //VACIAR TOTAL DEL CARRITO-
 botonVaciarCarrito.addEventListener("click", () => {
+    if(carrito.length === 0){
+        Swal.fire('Todavía no has agregado nada!');
+    }else{
+        Swal.fire({
+            title: 'Se ha vaciado tu carrito!',
+            showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+            }
+          })
+    }
     carrito.length = 0;
     actualizarCarrito();
 })
@@ -75,6 +96,14 @@ function actualizarCarrito(){
                     
                     const eliminarProducto = document.getElementById(`eliminar${prod.codigo}`);
                     eliminarProducto.addEventListener("click", function(){
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: prod.nombre+" "+'eliminado!',
+                            showConfirmButton: false,
+                            timer: 2500,
+                            toast : true
+                          })
                     eliminarDelCarrito(prod.codigo)
         }); 
     });         
@@ -90,7 +119,18 @@ function actualizarCarrito(){
 
 //FINALIZAR COMPRA-al finalizar la compra se vacía el carrito del local storage-
 botonFinalizarCompra.addEventListener("click", () =>{
-    Swal.fire('Compra realizada con éxito!!!');
+    if(carrito.length === 0){
+        Swal.fire('Seleccioná un producto!');
+    }else{
+        Swal.fire({
+            title: 'Compra realizada con éxito!!!',
+            text: 'Tu pedido está en proceso...',
+            imageUrl: '/imagenes/loogo.png',
+            imageWidth: 100,
+            imageHeight: 100,
+            imageAlt: 'Logo',
+          })
+    }
     localStorage.removeItem("carrito",JSON.stringify(carrito));
     carrito=[]
     actualizarCarrito()
@@ -102,4 +142,3 @@ const construido = productos.map(productos =>{
     return {...productos, origen};
 });
 console.table(construido)
-

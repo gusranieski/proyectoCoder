@@ -3,6 +3,7 @@
 
 <head>
     <link rel="icon" type="image/png" sizes="32x32" href="../imagenes/favicon-32x32.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
         integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -59,7 +60,7 @@
         </div>
     </header>
     <main class="Productos container text-center mb-4 mt-4">
-        <div>
+        <div class="hover13" >
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 VER CARRITO <i class="fa fa-shopping-cart"></i><span id="conteo-carrito">0</span></button>
@@ -96,15 +97,14 @@
                                     </tfoot>
                                 </table>
                             </div>
-                                <!-- </div> -->
-                                <div class="modal-footer btn-group">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Cerrar</button>
-                                    <button id="vaciar-carrito" type="button" class="btn btn-danger"
-                                        data-bs-dismiss="modal">Vaciar carrito</button>
-                                    <button id="finalizar-compra" type="button" class="btn btn-warning">Finalizar Compra
-                                        <i class="fa fa-shopping-cart"></i></button>
-                                </div>
+                            <!-- </div> -->
+                            <div class="modal-footer btn-group">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button id="vaciar-carrito" type="button" class="btn btn-danger"
+                                    data-bs-dismiss="modal">Vaciar carrito</button>
+                                <button id="finalizar-compra" type="button" class="btn btn-warning">Finalizar Compra
+                                    <i class="fa fa-shopping-cart"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -159,7 +159,7 @@
                 <button class="btn btn-warning">Comprar</button>
             </div> -->
             </section>
-
+        </div>
     </main>
     <footer class="nuevoFooter container-fluid text-center">
         <div class="redesSociales">
@@ -195,7 +195,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Mis spcripts -->
     <script src="../productos.js"></script>
-    <script src="../script.js"></script>
+    <script src="../scripts.js"></script>
 </body>
 
 </html>
