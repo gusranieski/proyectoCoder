@@ -4,6 +4,7 @@
     align-items: center;
     margin: 20px;
     & iframe {
+        box-shadow: 0.1rem 0.2rem 1rem 1px rgb(94, 90, 90);
         width: 100%;
     }
 }
@@ -62,9 +63,15 @@ a {
     justify-content: center;
     margin: 20px;
     & img {
+        box-shadow: 0.1rem 0.2rem 1rem 1px rgb(94, 90, 90);
         margin: 20px;
         height: 40vh;
     } 
+}
+
+.hover13 img {
+    box-shadow: 0.1rem 0.2rem 1rem 1px rgb(94, 90, 90);
+    border-radius: 5px;
 }
 
 .hover13 img:hover {

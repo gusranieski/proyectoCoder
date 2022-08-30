@@ -1,0 +1,86 @@
+[
+    {
+        "nombre": "Banco Niza",
+        "precio": 11000,
+        "codigo": "m01",
+        "cantidad": 1,
+        "imagen": "../imagenes/todos los productos/banco00.jpg"
+    },
+    {
+        "nombre": "Mesa Londres",
+        "precio": 15000,
+        "codigo": "m02",
+        "cantidad": 1,
+        "imagen": "../imagenes/todos los productos/escritorio00.jpg"
+    },
+    {
+        "nombre": "Mueble York",
+        "precio": 7800,
+        "codigo": "m03",
+        "cantidad": 1,
+        "imagen": "../imagenes/todos los productos/estanteria00.jpg"
+    },
+    {
+        "nombre": "Mueble Mini York",
+        "precio": 5000,
+        "codigo": "m04",
+        "cantidad": 1,
+        "imagen": "../imagenes/todos los productos/estanteria01.jpg"
+    },
+    {
+        "nombre": "Mesa Zagreb",
+        "precio": 15000,
+        "codigo": "m05",
+        "cantidad": 1,
+        "imagen": "../imagenes/todos los productos/mesaratona00.jpg"
+    },
+    {
+        "nombre": "Mesa Panama",
+        "precio": 7000,
+        "codigo": "m06",
+        "cantidad": 1,
+        "imagen": "../imagenes/todos los productos/mesaratona01.jpg"
+    },
+    {
+        "nombre": "Perchero Gales",
+        "precio": 6000,
+        "codigo": "m07",
+        "cantidad": 1,
+        "imagen": "../imagenes/todos los productos/perchero00.jpg"
+    },
+    {
+        "nombre": "Perchero Lyon",
+        "precio": 4000,
+        "codigo": "m08",
+        "cantidad": 1,
+        "imagen": "../imagenes/todos los productos/perchero001.jpg"
+    },
+    {
+        "nombre": "Banco Napoli",
+        "precio": 6000,
+        "codigo": "m09",
+        "cantidad": 1,
+        "imagen": "../imagenes/todos los productos/bancoNapoli.jpg"
+    },
+    {
+        "nombre": "Estante Seul",
+        "precio": 3000,
+        "codigo": "m010",
+        "cantidad": 1,
+        "imagen": "../imagenes/todos los productos/estanteSeul.jpg"
+    },
+    {
+        "nombre": "Banqueta Tokio",
+        "precio": 4000,
+        "codigo": "m011",
+        "cantidad": 1,
+        "imagen": "../imagenes/todos los productos/banquetaTokio.jpg"
+    },
+    {
+        "nombre": "Mesa Colombia",
+        "precio": 5000,
+        "codigo": "m012",
+        "cantidad": 1,
+        "imagen": "../imagenes/todos los productos/mesaColombia.jpg"
+    }
+]

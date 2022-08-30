@@ -154,6 +154,7 @@ h4 {
   align-items: center;
   margin: 20px; }
   .containerVideo iframe {
+    box-shadow: 0.1rem 0.2rem 1rem 1px #5e5a5a;
     width: 100%; }
 
 .sectionCategorias {
@@ -203,8 +204,13 @@ a {
   justify-content: center;
   margin: 20px; }
   .imgDestacados img {
+    box-shadow: 0.1rem 0.2rem 1rem 1px #5e5a5a;
     margin: 20px;
     height: 40vh; }
+
+.hover13 img {
+  box-shadow: 0.1rem 0.2rem 1rem 1px #5e5a5a;
+  border-radius: 5px; }
 
 .hover13 img:hover {
   opacity: 1;
