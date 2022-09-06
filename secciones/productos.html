@@ -49,18 +49,39 @@
                         </li>
                     </ul>
 
+                    <!-- Button trigger modal -->
+                <button id="loguearse" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#registro">Registrate <i class="fa-solid fa-user"></i>
+            </button>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="registro" tabindex="-1" aria-labelledby="user" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Completá tus datos:</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="formularioDeRegistro">
+                                <input id="nombre" type="text" name="usuario" placeholder="Nombre">
+                                <input id="telefono" type="number" name="phone" placeholder="Teléfono">
+                                <input id="edad" type="number" name="age" placeholder="Edad">
+                                <input id="correo" type="email" name="mail" placeholder="e-mail" required>
+
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-primary">Enviar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <!-- Button trigger modal -->
-                <!-- <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Ver Carrito <i class="fa fa-shopping-cart"></i></button> -->
             </div>
-        </nav>
-        <div>
-            <h1>PRODUCTOS</h1>
-        </div>
-    </header>
-    <main class="Productos container text-center mb-4 mt-4">
-        <div class="hover13" >
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 VER CARRITO <i class="fa fa-shopping-cart"></i><span id="conteo-carrito">0</span></button>
@@ -109,6 +130,15 @@
                     </div>
                 </div>
             </div>
+              
+        </nav>
+        <div>
+            <h1>PRODUCTOS</h1>
+        </div>
+    </header>
+    <main class="Productos container text-center mb-4 mt-4">
+        <div class="hover13" >
+            
             <section id="cartas" class="row">
                 <!-- <div class="items col-12 col-md-6 col-lg-3">
                 <img class="img-fluid mt-4" src="../imagenes/todos los productos/banco00.jpg" alt="Banco">
@@ -196,6 +226,7 @@
     <!-- Mis spcripts -->
     <!-- <script src="../productos.js"></script> -->
     <script src="../scripts.js"></script>
+    <script src="../registro.js"></script>
 </body>
 
 </html>
