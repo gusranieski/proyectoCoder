@@ -47,14 +47,15 @@ fetch('/stock.json')
         let botonComprar = document.getElementById(`btn${prod.codigo}`);    
         botonComprar.onclick = () => {
         Swal.fire({
-            position: 'top-end',
+            position: 'bottom-end',
             icon: 'success',
             title: 'Agregaste a tu carrito:'+"\n"+prod.nombre,
             showConfirmButton: false,
             timer: 2500,
             toast : true
           })
-            carrito.push(prod);           
+        //   agregarAlCarrito(prod.codigo)           
+            carrito.push(prod);
             actualizarCarrito()
         }
     }
@@ -66,33 +67,6 @@ fetch('/stock.json')
     console.table(construido) 
 })
 }
-
-//ELIMINAR PRODUCTOS-
-const eliminarDelCarrito = (prodId) => {
-    const item = carrito.find((prod) => prod.codigo === prodId);
-    const indice = carrito.indexOf(item);
-    carrito.splice(indice, 1);
-    actualizarCarrito();
-}
-
-//VACIAR TOTAL DEL CARRITO-
-botonVaciarCarrito.addEventListener("click", () => {
-    if(carrito.length === 0){
-        Swal.fire('Todavía no has agregado nada!');
-    }else{
-        Swal.fire({
-            title: 'Se ha vaciado tu carrito!',
-            showClass: {
-              popup: 'animate__animated animate__fadeInDown'
-            },
-            hideClass: {
-              popup: 'animate__animated animate__fadeOutUp'
-            }
-          })
-    }
-    carrito.length = 0;
-    actualizarCarrito();
-})
 
 //ACTUALIZAR CARRITO Y SUMAR EL TOTAL-
 function actualizarCarrito(){   
@@ -132,6 +106,33 @@ function actualizarCarrito(){
                 localStorage.setItem("carrito",JSON.stringify(carrito));
 }
 
+//ELIMINAR PRODUCTOS-
+const eliminarDelCarrito = (prodId) => {
+    let item = carrito.find((prod) => prod.codigo == prodId);
+    const indice = carrito.indexOf(item);
+    carrito.splice(indice, 1);
+    actualizarCarrito();
+}
+
+//VACIAR TOTAL DEL CARRITO-
+botonVaciarCarrito.addEventListener("click", () => {
+    if(carrito.length === 0){
+        Swal.fire('Todavía no has agregado nada!');
+    }else{
+        Swal.fire({
+            title: 'Se ha vaciado tu carrito!',
+            showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+            }
+          })
+    }
+    carrito.length = 0;
+    actualizarCarrito();
+})
+
 //FINALIZAR COMPRA-al finalizar la compra se vacía el carrito del local storage-
 botonFinalizarCompra.addEventListener("click", () =>{
     if(carrito.length === 0){
@@ -145,8 +146,28 @@ botonFinalizarCompra.addEventListener("click", () =>{
             imageHeight: 100,
             imageAlt: 'Logo',
           })
+
     }
+    enviarDatos()
     localStorage.removeItem("carrito",JSON.stringify(carrito));
     carrito=[]
     actualizarCarrito()
 })
+
+function enviarDatos(){
+    const URLPOST="https://jsonplaceholder.typicode.com/posts";
+    const nuevoEnvio=carrito
+    fetch(URLPOST,{
+        method:'POST',
+        body:JSON.stringify(nuevoEnvio),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        }
+    })
+        .then( respuesta => respuesta.json())
+        .then( datos => {
+            //se muestra por consola que se recibió la compra
+            console.log("Datos retornados por jsonplaceholder: ");
+            console.log(datos);
+        })
+}
