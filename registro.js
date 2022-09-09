@@ -31,5 +31,5 @@ function validarFormulario(e){
             'Para registrarse se requiere ser mayor de 18 años!',
             'question'
           )
-    }
+    } 
 }
