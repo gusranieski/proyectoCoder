@@ -48,111 +48,121 @@
                             <a class="nav-link" href="contacto.html">Contacto</a>
                         </li>
                     </ul>
-
-                    <!-- Button trigger modal -->
-                <button id="loguearse" type="button" class="btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#registro">Registrate <i class="fa-solid fa-user"></i>
-            </button>
-
-
-            <!-- Modal -->
-            <div class="modal fade" id="registro" tabindex="-1" aria-labelledby="user" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Completá tus datos:</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="formularioDeRegistro">
-                                <div class="mb-3">
-                                    <label for="nombre" class="form-label">Nombre:</label>
-                                    <input id="nombre" class="form-control" type="text" name="usuario" placeholder="Escribe tu nombre...">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="telefono" class="form-label">Teléfono:</label>
-                                    <input id="telefono" class="form-control" type="number" name="phone" placeholder="Escribe tu teléfono...">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="edad" class="form-label">Edad:</label>
-                                    <input id="edad" class="form-control" type="number" name="age" placeholder="Edad?...">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="correo" class="form-label">Correo:</label>
-                                    <input id="correo" class="form-control" type="email" name="mail" placeholder="Escribe tu e-mail..." required>
-                                </div>
-                                    
-
-
-
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Cancelar</button>
-                                    <button type="submit" class="btn btn-primary">Enviar</button>
-                                </div>
-                            </form>
-                        </div>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <!-- Button trigger modal -->
+                        <button id="loguearse" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#registro">Registrate <i class="fa-solid fa-user"></i>
+                        </button>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"><i class="fa fa-shopping-cart fa-2xl"></i><span class="cero"
+                                id="conteo-carrito">0</span></button>
                     </div>
-                </div>
-            </div>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                VER CARRITO <i class="fa fa-shopping-cart"></i><span id="conteo-carrito">0</span></button>
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Tus productos:</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <!-- se muestra el carrito -->
-                        <div id="modalProductos" class="modal-body">
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Código:</th>
-                                            <th scope="col">Producto:</th>
-                                            <th scope="col">Precio:</th>
-                                            <th scope="col">Cantidad:</th>
-                                            <th scope="col">Eliminar:</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="tablaCarrito">
-                                        <!-- se inserta la tabla del carrito -->
-                                    </tbody>
-                                    <tfoot>
-                                        <tr id="footer-total">
-                                            <th scope="row" colspan="5"></th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                            <!-- </div> -->
-                            <div class="modal-footer btn-group">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <button id="vaciar-carrito" type="button" class="btn btn-danger"
-                                    data-bs-dismiss="modal">Vaciar carrito</button>
-                                <button id="finalizar-compra" type="button" class="btn btn-warning">Finalizar Compra
-                                    <i class="fa fa-shopping-cart"></i></button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="registro" tabindex="-1" aria-labelledby="user" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Completá tus datos:</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="formularioDeRegistro">
+                                        <div class="mb-3">
+                                            <label for="nombre" class="form-label">Nombre:</label>
+                                            <input id="nombre" class="form-control" type="text" name="usuario"
+                                                placeholder="Escribe tu nombre...">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="telefono" class="form-label">Teléfono:</label>
+                                            <input id="telefono" class="form-control" type="number" name="phone"
+                                                placeholder="Escribe tu teléfono...">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="edad" class="form-label">Edad:</label>
+                                            <input id="edad" class="form-control" type="number" name="age"
+                                                placeholder="Edad?...">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="correo" class="form-label">Correo:</label>
+                                            <input id="correo" class="form-control" type="email" name="mail"
+                                                placeholder="Escribe tu e-mail..." required>
+                                        </div>
+
+
+
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Cancelar</button>
+                                            <button type="submit" class="btn btn-primary">Enviar</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-              
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Tus productos:</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <!-- se muestra el carrito -->
+                                <div id="modalProductos" class="modal-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Código:</th>
+                                                    <th scope="col">Producto:</th>
+                                                    <th scope="col">Precio:</th>
+                                                    <th scope="col">Cant.:</th>
+                                                    <th scope="col">Subtotal:</th>
+                                                    <th scope="col">Eliminar:</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tablaCarrito">
+                                                <!-- se inserta la tabla del carrito -->
+                                            </tbody>
+                                            <tfoot>
+                                                <tr id="footer-total">
+                                                    <th scope="row" colspan="5"></th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    <!-- </div> -->
+                                    <div class="modal-footer btn-group">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Cerrar</button>
+                                        <button id="vaciar-carrito" type="button" class="btn btn-danger"
+                                            data-bs-dismiss="modal">Vaciar carrito</button>
+                                        <button id="finalizar-compra" type="button" class="btn btn-warning">Finalizar
+                                            Compra
+                                            <i class="fa fa-shopping-cart"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
         </nav>
         <div>
             <h1>PRODUCTOS</h1>
         </div>
     </header>
     <main class="Productos container text-center mb-4 mt-4">
-        <div class="hover13" >
-            
+        <div class="hover13">
+
             <section id="cartas" class="row">
                 <!-- <div class="items col-12 col-md-6 col-lg-3">
                 <img class="img-fluid mt-4" src="../imagenes/todos los productos/banco00.jpg" alt="Banco">

@@ -54,9 +54,10 @@ fetch('/stock.json')
             timer: 2500,
             toast : true
           })
-        //   agregarAlCarrito(prod.codigo)           
-            carrito.push(prod);
-            actualizarCarrito()
+            agregarAlCarrito(prod);
+            actualizarCarrito(prod);
+            //se muestra por consola para corroborar el carrito    
+            console.table(carrito);
         }
     }
     //SPREAD OPERATOR-agrego una nueva clave y valor a todos los objetos y se muestra por consola
@@ -64,8 +65,22 @@ fetch('/stock.json')
     const construido = productos.map(productos =>{
     return {...productos, origen};
     });
-    console.table(construido) 
+    console.table(construido); 
 })
+}
+
+//FUNCION AGREGAR AL CARRITO
+const agregarAlCarrito=(productoSeleccionado)=>{
+    //si ya existe el producto en el carrito se mapea y se suma la cantidad
+    const existe = carrito.some ((prod) => prod.codigo === productoSeleccionado.codigo);
+    if (existe){
+            carrito.map(prod => prod.codigo===productoSeleccionado.codigo && prod.cantidad++);
+        }else{
+        //se agrega al carrito
+        carrito.push(productoSeleccionado);
+         
+    }
+    actualizarCarrito();
 }
 
 //ACTUALIZAR CARRITO Y SUMAR EL TOTAL-
@@ -78,6 +93,7 @@ function actualizarCarrito(){
                         <td>${prod.nombre}</td>
                         <td>$${prod.precio}</td>
                         <td>${prod.cantidad}</td>
+                        <td>$${prod.precio*prod.cantidad}</td>
                         <td><button id="eliminar${prod.codigo}" class="btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i></button></td>
                         `;
                     contenedorCarrito.append(div);
@@ -92,25 +108,25 @@ function actualizarCarrito(){
                             timer: 2500,
                             toast : true
                           })
-                    eliminarDelCarrito(prod.codigo)
+                    eliminarDelCarrito(prod.codigo);
         }); 
     });         
                 //con el método reduce se suma total de todo el carrito
-                const total = carrito.reduce((acc,prod) => acc+prod.precio,0);
+                const total = carrito.reduce((acc,prod) => acc+(prod.precio*prod.cantidad),0);
                 //OPERADOR TERNARIO-------------------------
                 carrito.length === 0 ? contenedorTotalModal.innerHTML = `<th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>`: contenedorTotalModal.innerHTML = `<th scope="row" colspan="5">Total de la compra: $${total}</th>`;
                 //se muestra por consola la suma total
                 console.log("Total de la suma $"+total);
-                contadorCarrito.innerText = carrito.length;
+                contadorCarrito.innerText = carrito.reduce((acc,prod) => acc+prod.cantidad,0);
                 //se guarda el carrito en el local storage
                 localStorage.setItem("carrito",JSON.stringify(carrito));
 }
 
 //ELIMINAR PRODUCTOS-
 const eliminarDelCarrito = (prodId) => {
-    let item = carrito.find((prod) => prod.codigo == prodId);
-    const indice = carrito.indexOf(item);
+    let indice = carrito.findIndex(prod => prod.codigo == prodId);
     carrito.splice(indice, 1);
+    localStorage.setItem("carrito",JSON.stringify(carrito));
     actualizarCarrito();
 }
 
@@ -130,6 +146,7 @@ botonVaciarCarrito.addEventListener("click", () => {
           })
     }
     carrito.length = 0;
+    localStorage.removeItem("carrito",JSON.stringify(carrito));
     actualizarCarrito();
 })
 
@@ -146,12 +163,11 @@ botonFinalizarCompra.addEventListener("click", () =>{
             imageHeight: 100,
             imageAlt: 'Logo',
           })
-
     }
-    enviarDatos()
+    enviarDatos();
     localStorage.removeItem("carrito",JSON.stringify(carrito));
-    carrito=[]
-    actualizarCarrito()
+    carrito=[];
+    actualizarCarrito();
 })
 
 function enviarDatos(){

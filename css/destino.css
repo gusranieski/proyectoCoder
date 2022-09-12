@@ -118,6 +118,9 @@ nav {
     list-style: none;
     padding-left: 0px; }
 
+.cero {
+  font-size: 2rem; }
+
 h1 {
   height: 150px;
   display: flex;
