@@ -20,7 +20,7 @@ const botonFinalizarCompra = document.getElementById("finalizar-compra");
 
 //STORAGE-cuando se actualiza la página, se carga el carrito abandonado
 //OPERADOR LOGICO OR--------------
-carrito = JSON.parse(localStorage.getItem('carrito')) || [] 
+carrito = JSON.parse(localStorage.getItem('carrito')) || []; 
 
 //FUNCIONES-
 crearTarjeta();
@@ -65,6 +65,7 @@ fetch('/stock.json')
     const construido = productos.map(productos =>{
     return {...productos, origen};
     });
+    //se muestra por consola para corroborar
     console.table(construido); 
 })
 }
@@ -76,9 +77,8 @@ const agregarAlCarrito=(productoSeleccionado)=>{
     if (existe){
             carrito.map(prod => prod.codigo===productoSeleccionado.codigo && prod.cantidad++);
         }else{
-        //se agrega al carrito
-        carrito.push(productoSeleccionado);
-         
+        //se agrega al carrito y después se actualiza
+        carrito.push(productoSeleccionado);   
     }
     actualizarCarrito();
 }
@@ -113,16 +113,17 @@ function actualizarCarrito(){
     });         
                 //con el método reduce se suma total de todo el carrito
                 const total = carrito.reduce((acc,prod) => acc+(prod.precio*prod.cantidad),0);
-                //OPERADOR TERNARIO-------------------------
+                //OPERADOR TERNARIO-muestra mensaje en el carrito que después cambia al agregar un producto
                 carrito.length === 0 ? contenedorTotalModal.innerHTML = `<th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>`: contenedorTotalModal.innerHTML = `<th scope="row" colspan="5">Total de la compra: $${total}</th>`;
                 //se muestra por consola la suma total
                 console.log("Total de la suma $"+total);
+                //se contabiliza la cantidad total de productos para mostar en el botón del carrito
                 contadorCarrito.innerText = carrito.reduce((acc,prod) => acc+prod.cantidad,0);
                 //se guarda el carrito en el local storage
                 localStorage.setItem("carrito",JSON.stringify(carrito));
 }
 
-//ELIMINAR PRODUCTOS-
+//ELIMINAR PRODUCTOS-funcíon para eliminar los items del carrito
 const eliminarDelCarrito = (prodId) => {
     let indice = carrito.findIndex(prod => prod.codigo == prodId);
     carrito.splice(indice, 1);
@@ -130,7 +131,7 @@ const eliminarDelCarrito = (prodId) => {
     actualizarCarrito();
 }
 
-//VACIAR TOTAL DEL CARRITO-
+//VACIAR TOTAL DEL CARRITO-función que vacia el total de items del carrito al usar el botón del evento
 botonVaciarCarrito.addEventListener("click", () => {
     if(carrito.length === 0){
         Swal.fire('Todavía no has agregado nada!');
@@ -145,6 +146,7 @@ botonVaciarCarrito.addEventListener("click", () => {
             }
           })
     }
+    //se elimina todo el carrito, se remueve del local storage y se actualiza
     carrito.length = 0;
     localStorage.removeItem("carrito",JSON.stringify(carrito));
     actualizarCarrito();
@@ -164,12 +166,15 @@ botonFinalizarCompra.addEventListener("click", () =>{
             imageAlt: 'Logo',
           })
     }
+    //llama a la función que envía los datos al servidor para recibir una respuesta
     enviarDatos();
+    //se remueve la info del local storage y se actualiza el carrito desde cero
     localStorage.removeItem("carrito",JSON.stringify(carrito));
     carrito=[];
     actualizarCarrito();
 })
 
+//METODO POST-
 function enviarDatos(){
     const URLPOST="https://jsonplaceholder.typicode.com/posts";
     const nuevoEnvio=carrito

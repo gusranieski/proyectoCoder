@@ -1,3 +1,4 @@
+//VARIABLES PRINCIPALES-
 let arrayDeUsuarios = []
 
 let nombre = document.getElementById("nombre");
@@ -5,7 +6,7 @@ let telefono = document.getElementById("telefono");
 let edad = document.getElementById("edad");
 let correo = document.getElementById("correo");
 
-
+//EVENTO DE TECLADO-si el valor del input es en letras, se muestra en verde, sino, en rojo
 nombre.oninput=()=>{
     if(isNaN(nombre.value)){
         nombre.style.color="green";
@@ -14,7 +15,7 @@ nombre.oninput=()=>{
     }
 }
 
-//EVENTO SUBMIT
+//EVENTO SUBMIT-se validan todos los datos ingresados en los inputs
 let formulario = document.getElementById("formularioDeRegistro");
 formulario.addEventListener("submit",validarFormulario);
 
@@ -51,6 +52,7 @@ function validarFormulario(e){
         //se agregan los datos ingresados al array de usuarios
         arrayDeUsuarios.push(nuevoUsuario);
         Swal.fire('Usuario registrado!');
+        //llama a la funcón enviar
         enviarUsuario()
         //se muestra por consola cada usuario cargado
         console.table(nuevoUsuario);
